@@ -86,9 +86,10 @@ class Controller {
       const { username } = req.body;
       const user = await User.create({ username });
       const game = await Game.create({
-        deckCards: Controller.shuffleCards(),
-        status: "waiting",
-      });
+      deckCards: Controller.shuffleCards(),
+      status: "waiting",
+      totalDeck: 10,
+    });
       const userGame = await UserGame.create({
         UserId: user.id,
         GameId: game.id,
@@ -107,6 +108,7 @@ class Controller {
         message: "Game created successfully",
       });
     } catch (error) {
+      console.log("🚀 ~ Controller ~ createGame ~ error:", error)
       next(error);
     }
   }
@@ -256,8 +258,9 @@ class Controller {
 
   static async action(req, res, next) {
     try {
-      const { gameId, userId, imageId } = req.body;
+    const { gameId, userId, imageId } = req.body;
       const game = await Game.findByPk(gameId);
+      // console.log("🚀 ~ Controller ~ action ~ game:", game)
       if (!game) {
         throw { name: "NotFound", message: "Game not found" };
       }
@@ -280,13 +283,19 @@ class Controller {
       const imageIndexPlayer = playerCards[0].indexOf(Number(imageId));
       const imageIndexDeck = topCard.indexOf(Number(imageId));
 
-      if (imageIndexDeck !== -1 && imageIndexPlayer !== -1) {
-        playerCards.unshift(topCard);
-        await UserGame.update(
-          { playerCards: playerCards },
-          { where: { UserId: userId, GameId: gameId } }
-        );
-        await Game.update({ deckCards: deckCards }, { where: { id: gameId } });
+    if (imageIndexDeck !== -1 && imageIndexPlayer !== -1) {
+    playerCards.unshift(topCard);
+    await UserGame.update(
+        { playerCards: playerCards },
+        { where: { UserId: userId, GameId: gameId } }
+    );
+    await Game.update(
+        { 
+        deckCards: deckCards,
+        totalDecks: game.totalDecks - 1
+        }, 
+        { where: { id: gameId } }
+    );
       } else {
         throw { name: "BadRequest", message: "Image not matched" };
         // return res.status(400).json({
@@ -310,12 +319,13 @@ class Controller {
         });
 
         io.to(`game-${gameId}`).emit("gameStateUpdate", {
-          players: playerScores,
-          game: {
+            players: playerScores,  
+            game: {
             deckCards: currentGame.deckCards,
             status: currentGame.status,
-          },
-          message: `${player.dataValues.User.username} gets the card (+1pt)`,
+            totalDecks: currentGame.totalDecks
+            },
+            message: `${player.dataValues.User.username} gets the card (+1pt)`,
         });
 
         return res.status(200).json({
@@ -447,6 +457,7 @@ class Controller {
         game: {
           deckCards: game.deckCards,
           status: game.status,
+          totalDecks: game.totalDecks
         },
       });
     } catch (error) {

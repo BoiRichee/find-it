@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       deckCards: DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.INTEGER)),
       status: DataTypes.STRING,
+      totalDecks: DataTypes.INTEGER
     },
     {
       sequelize,
