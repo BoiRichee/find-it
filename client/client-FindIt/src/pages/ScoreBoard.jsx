@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import { motion, AnimatePresence } from "framer-motion";
 import { io } from "socket.io-client";
 const socket = io("http://localhost:3000");
-// const socket = io("https://rmt56.juang.site");
 
 export default function Scoreboard() {
   const [scoreBoard, setScoreBoard] = useState([]);
