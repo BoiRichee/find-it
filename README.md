@@ -9,7 +9,7 @@ Online Multiplayer Spot-It Game
 1. **Clone the repository**
 
    ```sh
-   git clone https://github.com/RMT56-2play/server.git
+   git clone https://github.com/find-it/server.git
 
    ```
 
@@ -45,7 +45,7 @@ Online Multiplayer Spot-It Game
 1. **Clone the repository**
 
    ```sh
-   git clone https://github.com/RMT56-2play/client.git
+   git clone https://github.com/find-it/client.git
 
    ```
 
