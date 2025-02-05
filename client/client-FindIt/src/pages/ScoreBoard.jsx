@@ -17,30 +17,6 @@ export default function Scoreboard() {
     navigate("/");
   };
 
-  // const fetchScoreBoard = async () => {
-  //   try {
-  //     const response = await p2Api.get("/getscoreboard", {
-  //       params: {
-  //         gameId: localStorage.getItem("gameId"),
-  //       },
-  //     });
-  //     console.log(response.data.players);
-  //     setScoreBoard(
-  //       [...response.data.players].sort((a, b) => b.score - a.score)
-  //     );
-  //     // console.log(scoreBoard);
-  //     toast.success("Game has ended", {
-  //       autoClose: 300,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchScoreBoard();
-  // }, []);
-
   useEffect(() => {
     const gameId = localStorage.getItem("gameId");
     socket.emit("joinGameRoom", gameId);

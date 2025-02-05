@@ -465,44 +465,6 @@ class Controller {
     }
   }
 
-  // static async endGame(req, res, next) {
-  //   try {
-  //     const { gameId } = req.body;
-  //     const game = await Game.findByPk(gameId);
-  //     if (!game) {
-  //       throw { name: "NotFound", message: "Game not found" };
-  //     }
-  //     if (game.status === "waiting") {
-  //       throw { name: "BadRequest", message: "Game has not started yet" };
-  //     } else if (game.status === "ended") {
-  //       throw { name: "BadRequest", message: "Game has ended" };
-  //     }
-  //     const players = await UserGame.findAll({
-  //       where: { GameId: gameId },
-  //       include: [{ model: User, attributes: ["username"] }],
-  //     });
-  //     const playerScores = players.map((player) => {
-  //       return {
-  //         username: player.dataValues.User.username,
-  //         score: player.dataValues.playerCards.length,
-  //       };
-  //     });
-  //     await Game.update({ status: "ended" }, { where: { id: gameId } });
-
-  //     io.to(`game-${gameId}`).emit("gameEnded", {
-  //       playerScores: playerScores,
-  //       message: "Game ended",
-  //     });
-
-  //     return res.status(200).json({
-  //       playerScores: playerScores,
-  //       message: "Game ended",
-  //     });
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // }
-
   static async endGame(gameId) {
     const game = await Game.findByPk(gameId);
     if (!game) {
