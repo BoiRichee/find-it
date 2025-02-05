@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import waitingPageBackground from "../assets/waitingRoom.png";
+import waitingPageBackground from "../assets/3771357.jpg";
 import Background from "../components/Background";
 import { useEffect } from "react";
 import { io } from "socket.io-client";

@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "postgres",
-    "password": "postgres",
-    "database": "FindIt_DB",
+    "password": "123",
+    "database": "2play",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
