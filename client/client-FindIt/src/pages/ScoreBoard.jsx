@@ -1,7 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router";
 import Background from "../components/Background";
-import scoreboardBackground from "../assets/scoreboard background.png";
+import scoreboardBackground from "../assets/3771357.jpg";
 import { p2Api } from "../helpers/http-client";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
