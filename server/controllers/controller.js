@@ -64,13 +64,13 @@ class Controller {
       // [3, 8, 47, 35, 20, 55, 25, 30],
       [4, 9, 14, 48, 55, 36, 26, 31],
       // [32, 37, 10, 15, 55, 27, 42, 5],
-      // [33, 43, 38, 6, 11, 16, 21, 55],
       // [0, 37, 43, 13, 19, 56, 25, 31],
-      // [32, 1, 38, 7, 44, 20, 56, 26],
-      // [33, 2, 39, 8, 45, 14, 56, 27],
-      // [34, 3, 40, 9, 46, 15, 21, 56],
       [4, 41, 10, 47, 16, 22, 56, 28],
+      // [32, 1, 38, 7, 44, 20, 56, 26],
+      [33, 43, 38, 6, 11, 16, 21, 55],
+      // [34, 3, 40, 9, 46, 15, 21, 56],
       // [35, 5, 11, 48, 17, 23, 56, 29],
+      [33, 2, 39, 8, 45, 14, 56, 27],
       // [36, 6, 42, 12, 56, 18, 24, 30],
     ];
     const shuffled = [...cardSets];
@@ -464,44 +464,6 @@ class Controller {
       next(error);
     }
   }
-
-  // static async endGame(req, res, next) {
-  //   try {
-  //     const { gameId } = req.body;
-  //     const game = await Game.findByPk(gameId);
-  //     if (!game) {
-  //       throw { name: "NotFound", message: "Game not found" };
-  //     }
-  //     if (game.status === "waiting") {
-  //       throw { name: "BadRequest", message: "Game has not started yet" };
-  //     } else if (game.status === "ended") {
-  //       throw { name: "BadRequest", message: "Game has ended" };
-  //     }
-  //     const players = await UserGame.findAll({
-  //       where: { GameId: gameId },
-  //       include: [{ model: User, attributes: ["username"] }],
-  //     });
-  //     const playerScores = players.map((player) => {
-  //       return {
-  //         username: player.dataValues.User.username,
-  //         score: player.dataValues.playerCards.length,
-  //       };
-  //     });
-  //     await Game.update({ status: "ended" }, { where: { id: gameId } });
-
-  //     io.to(`game-${gameId}`).emit("gameEnded", {
-  //       playerScores: playerScores,
-  //       message: "Game ended",
-  //     });
-
-  //     return res.status(200).json({
-  //       playerScores: playerScores,
-  //       message: "Game ended",
-  //     });
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // }
 
   static async endGame(gameId) {
     const game = await Game.findByPk(gameId);

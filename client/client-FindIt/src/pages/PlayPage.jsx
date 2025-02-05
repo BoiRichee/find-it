@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 
 import { io } from "socket.io-client";
 const socket = io("http://localhost:3000");
-// const socket = io("https://rmt56.juang.site");
 
 export default function PlayPage() {
   const [playerImages, setPlayerImages] = useState([]);
@@ -79,96 +78,7 @@ export default function PlayPage() {
     { name: "zebra", img: "/zebra.png" },
   ];
 
-  // const fetchPlayerCard = async () => {
-  //   try {
-  //     const response = await p2Api.get("/getplayercards", {
-  //       params: {
-  //         userId: localStorage.getItem("userId"),
-  //         gameId: localStorage.getItem("gameId"),
-  //       },
-  //     });
-  //     console.log(response.data);
-  //     const playerTopCard = response.data.playerCards[0];
-  //     // const playerCardImages = playerTopCard.map(
-  //     //   (card) => imageSpotIt[card].img
-  //     // );
-  //     setPlayerImages(playerTopCard);
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error("Error fetching cards", {
-  //       autoClose: 300,
-  //     });
-  //   }
-  // };
-
-  // const fetchDeckCard = async () => {
-  //   try {
-  //     const response = await p2Api.get("/getdeckcards", {
-  //       params: {
-  //         gameId: localStorage.getItem("gameId"),
-  //       },
-  //     });
-  //     console.log(response.data);
-  //     const deckTopCard = response.data.deckCards[0];
-  //     // const deckCardImages = deckTopCard.map((card) => imageSpotIt[card].img);
-  //     setDeckImages(deckTopCard);
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error("Error fetching cards", {
-  //       autoClose: 300,
-  //     });
-  //   }
-  // };
-
-  // const fetchScoreBoard = async () => {
-  //   try {
-  //     const response = await p2Api.get("/getscoreboard", {
-  //       params: {
-  //         gameId: localStorage.getItem("gameId"),
-  //       },
-  //     });
-  //     console.log(response.data.players);
-  //     setScoreBoard(response.data.players);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const handleAction = useCallback(
-  //   async (imageId, e) => {
-  //     e.preventDefault();
-  //     try {
-  //       console.log(imageId);
-  //       const response = await p2Api.post("/action", {
-  //         userId: localStorage.getItem("userId"),
-  //         gameId: localStorage.getItem("gameId"),
-  //         imageId: imageId,
-  //       });
-  //       console.log(response.data);
-  //       toast.success(`${localStorage.getItem("username")} get 1pt`, {
-  //         autoClose: 300,
-  //       });
-  //       if (response.data.message === "Game ended") {
-  //         navigate("/scoreboard");
-  //       } else {
-  //         fetchPlayerCard();
-  //         fetchDeckCard();
-  //         fetchScoreBoard();
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //       toast.error("Image not matched", { autoClose: 300 });
-  //     }
-  //   },
-  //   [navigate]
-  // );
-
-  // useEffect(() => {
-  //   fetchPlayerCard();
-  //   fetchDeckCard();
-  //   fetchScoreBoard();
-  // }, [handleAction]);
-
+  
   useEffect(() => {
     socket.emit("joinGameRoom", localStorage.getItem("gameId"));
 
@@ -351,14 +261,14 @@ export default function PlayPage() {
                         </div>
                         <div className="flex flex-col items-start">
                           <div className="text-white font-bold">{player.username}</div>
-                          <div className="text-white/60 text-sm">Rank #{index + 1}</div>
+                          {/* <div className="text-white/60 text-sm">Rank #{index + 1}</div> */}
                         </div>
                       </div>
                       <div className="flex items-center gap-6">
                         <div className="flex flex-col items-end">
                           <div className="text-sm text-white/60">SCORE</div>
                           <div className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 text-transparent bg-clip-text">
-                            {player.score}
+                            {player.score - 1}
                           </div>
                         </div>
                         <div className={`w-3 h-3 rounded-full ${player.id === Number(localStorage.getItem("userId"))

@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import { motion, AnimatePresence } from "framer-motion";
 import { io } from "socket.io-client";
 const socket = io("http://localhost:3000");
-// const socket = io("https://rmt56.juang.site");
 
 export default function Scoreboard() {
   const [scoreBoard, setScoreBoard] = useState([]);
@@ -17,30 +16,6 @@ export default function Scoreboard() {
   const handleBack = () => {
     navigate("/");
   };
-
-  // const fetchScoreBoard = async () => {
-  //   try {
-  //     const response = await p2Api.get("/getscoreboard", {
-  //       params: {
-  //         gameId: localStorage.getItem("gameId"),
-  //       },
-  //     });
-  //     console.log(response.data.players);
-  //     setScoreBoard(
-  //       [...response.data.players].sort((a, b) => b.score - a.score)
-  //     );
-  //     // console.log(scoreBoard);
-  //     toast.success("Game has ended", {
-  //       autoClose: 300,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchScoreBoard();
-  // }, []);
 
   useEffect(() => {
     const gameId = localStorage.getItem("gameId");
@@ -157,7 +132,7 @@ export default function Scoreboard() {
 
                         <div className="text-right">
                           <div className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                            {player.score}
+                            {player.score - 1}
                           </div>
                           <div className="text-blue-300 text-sm font-medium">POINTS</div>
                         </div>
