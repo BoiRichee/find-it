@@ -157,7 +157,7 @@ export default function Scoreboard() {
 
                         <div className="text-right">
                           <div className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                            {player.score}
+                            {player.score - 1}
                           </div>
                           <div className="text-blue-300 text-sm font-medium">POINTS</div>
                         </div>

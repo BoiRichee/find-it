@@ -351,14 +351,14 @@ export default function PlayPage() {
                         </div>
                         <div className="flex flex-col items-start">
                           <div className="text-white font-bold">{player.username}</div>
-                          <div className="text-white/60 text-sm">Rank #{index + 1}</div>
+                          {/* <div className="text-white/60 text-sm">Rank #{index + 1}</div> */}
                         </div>
                       </div>
                       <div className="flex items-center gap-6">
                         <div className="flex flex-col items-end">
                           <div className="text-sm text-white/60">SCORE</div>
                           <div className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 text-transparent bg-clip-text">
-                            {player.score}
+                            {player.score - 1}
                           </div>
                         </div>
                         <div className={`w-3 h-3 rounded-full ${player.id === Number(localStorage.getItem("userId"))
