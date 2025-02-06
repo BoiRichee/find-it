@@ -44,8 +44,8 @@ export default function Waiting() {
 
         const handleGameStart = () => {
             navigate("/playPage");
-        };
-        
+        };  
+
         socketRef.current.on("playerListUpdate", handlePlayerListUpdate);
         socketRef.current.on("gameStart", handleGameStart);
 
