@@ -60,7 +60,7 @@ return (
             transition={{ delay: 0.3 }}
             className="text-lg leading-relaxed text-center mb-8 font-medium"
         >
-            Spot-It is a fun and fast-paced game where players compete to find
+            Find-It is a fun and fast-paced game where players compete to find
             matching symbols between cards. Here's how you can play:
         </motion.p>
 
@@ -90,7 +90,7 @@ return (
             transition={{ delay: 0.8 }}
             className="text-center text-lg font-medium pt-4"
         >
-            ✨ Get ready for an exciting and competitive experience with Spot-It! ✨
+            ✨ Get ready for an exciting and competitive experience with Find-It! ✨
         </motion.p>
         </motion.div>
 

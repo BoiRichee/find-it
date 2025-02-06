@@ -70,7 +70,7 @@ return (
         className="text-center mb-8"
         >
         <h1 className="text-5xl font-extrabold text-white mb-2 tracking-wider">
-            🎯 Spot It! 🎯
+            🎯 Find It! 🎯
         </h1>
         <p className="text-white text-opacity-90 text-md font-light mt-5">Ready to play?</p>
         </motion.div>
