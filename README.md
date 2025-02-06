@@ -1,67 +1,89 @@
-# find-it
-Online Multiplayer Spot-It Game
+# Find-It 🎯
+
+> An exciting real-time multiplayer game inspired by the classic Spot It! (Dobble) card game
+
+## 🎮 Game Description
+
+Find-It is an online multiplayer adaptation of the popular Spot It! card game. Players compete in real-time to quickly find matching symbols between cards, testing their observation skills and reflexes. The game provides an engaging multiplayer experience where speed and accuracy are key to victory.
+
+### ✨ Features
+
+- Real-time multiplayer gameplay
+- Multiple game rooms support
+- Player ranking system
+
+## 🖼️ Screenshots
+
+### Game 
+![Screen Shot 2025-02-06 at 11 26 48](https://github.com/user-attachments/assets/c85bac67-1cf9-4b1b-8687-e6eced89eee3)
 
 
-# Find It server
+### Gameplay
+![ss1](https://github.com/user-attachments/assets/3111b745-fc3f-4d6d-aca1-784c64e3ba22)
 
-### Installation
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- Socket.IO Client
+- Tailwind CSS
+
+### Backend
+- Node.js
+- Express
+- Socket.IO
+- PostgreSQL
+- Sequelize ORM
+
+## 🚀 Installation and Setup
+
+### Backend Setup
 
 1. **Clone the repository**
-
-   ```sh
-   git clone https://github.com/find-it/server.git
-
-   ```
+```bash
+git clone https://github.com/find-it/server.git
+cd server
+```
 
 2. **Install dependencies**
+```bash
+npm install
+```
 
-   ```sh
-   # For the Backend:
+3. **Setup PostgreSQL Database**
+```bash
+npx sequelize-cli db:create
+npx sequelize-cli db:migrate
+```
 
-   cd server
-   npm install
-   ```
+4. **Start the server**
+```bash
+npm run dev
+```
+The backend will be available at http://localhost:3000
 
-3. **Setup Database Postgres**
-
-   ```sh
-   npx sequelize-cli db:create
-   npx sequelize-cli db:migrate
-   ```
-
-## Access the application
-
-- Backend: http://localhost:3000
-
-  ```sh
-  npm run dev
-  ```
-
-
-# Find It client
-
-### Installation
+### Frontend Setup
 
 1. **Clone the repository**
-
-   ```sh
-   git clone https://github.com/find-it/client.git
-
-   ```
+```bash
+git clone https://github.com/find-it/client.git
+cd client/client
+```
 
 2. **Install dependencies**
+```bash
+npm install
+```
 
-   ```sh
-   # For the Frontend:
+3. **Start the development server**
+```bash
+npm run dev
+```
+The frontend will be available at http://localhost:5173
 
-   cd client/client
-   npm install
-   ```
+## 🤝 Contributing
 
-## Access the application
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- Frontend: http://localhost:5173
-
-  ```sh
-  npm run dev
-  ```

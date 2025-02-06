@@ -479,7 +479,7 @@ class Controller {
     const playerScores = players.map((player) => ({
       username: player.dataValues.User.username,
       score: player.dataValues.playerCards.length,
-    }));
+    })); 
 
     await Game.update({ status: "ended" }, { where: { id: gameId } });
 
