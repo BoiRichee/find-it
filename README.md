@@ -2,7 +2,7 @@
 Online Multiplayer Spot-It Game
 
 
-# 2play server
+# Find It server
 
 ### Installation
 
@@ -38,7 +38,7 @@ Online Multiplayer Spot-It Game
   ```
 
 
-# 2play client
+# Find It client
 
 ### Installation
 
