@@ -15,10 +15,10 @@ Find-It is an online multiplayer adaptation of the popular Spot It! card game. P
 ## 🖼️ Screenshots
 
 ### Game 
-[Add a screenshot of the game lobby showing the room list and player status]
+![Uploading Screen Shot 2025-02-06 at 11.28.13.png…]()
 
 ### Gameplay
-[Add a screenshot of an active game session showing the cards and player interaction]
+![Uploading Screen Shot 2025-02-06 at 11.28.37.png…]()
 
 ## 🛠️ Tech Stack
 
