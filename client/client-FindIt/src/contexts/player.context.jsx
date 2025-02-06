@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 
 export const PlayerContext = createContext({
   players: [],
@@ -7,9 +7,9 @@ export const PlayerContext = createContext({
 export const PlayerProvider = ({ children }) => {
   const [players, setPlayers] = useState([]);
 
-  const updatePlayers = (newPlayers) => {
+  const updatePlayers = useCallback((newPlayers) => {
     setPlayers(newPlayers);
-  };
+  }, []);
 
   return (
     <PlayerContext.Provider value={{ players, updatePlayers }}>
